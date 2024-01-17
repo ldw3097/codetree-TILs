@@ -5,11 +5,13 @@ arr = []
 for i in range(n):
     arr.append( list(map(int, input().split()))  )
 
-dp = [0]*1001
+enddaytomoney = {}
+
 for a,b,c in arr:
     parmax = 0
-    for i in range(a):
-        parmax = max(parmax, dp[i])
-    dp[b] = parmax+c
+    for endday in enddaytomoney:
+        if endday < a:
+            parmax = max(parmax, enddaytomoney[endday])
+    enddaytomoney[b] = parmax+c
 
-print(max(dp))
+print(max(enddaytomoney.values()))
