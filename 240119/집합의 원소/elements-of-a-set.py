@@ -13,6 +13,8 @@ def find(a):
     return root
 
 def union(a, b):
+    if find(a) == find(b):
+        return
     arr[b] = a
 
 for i in range(m):
