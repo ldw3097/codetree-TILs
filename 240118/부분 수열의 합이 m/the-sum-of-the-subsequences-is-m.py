@@ -4,14 +4,14 @@ input = sys.stdin.readline
 n, m = map(int, input().split())
 arr = list(map(int, input().split()))
 
-dp = {0:0}
+invalid = 987654321
+dp = [invalid]*(m+1)
+dp[0] = 0
 for a in arr:
-    dp2 = {}
-    for b in dp:
-        if a+b <= m and ((a+b) not in dp or dp[b]+1 < dp[a+b]):
-            dp2[a+b] = dp[b]+1
-    dp.update(dp2)
-if m not in dp:
+    for i in range(m, a-1, -1):
+        if dp[i-a] != invalid and dp[i-a]+1 < dp[i]:
+            dp[i] = dp[i-a]+1
+if dp[m] == invalid:
     print(-1)
 else:
     print(dp[m])
