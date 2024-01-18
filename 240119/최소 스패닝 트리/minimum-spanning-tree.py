@@ -1,5 +1,6 @@
 import sys
 input = sys.stdin.readline
+sys.setrecursionlimit(10*7)
 n, m = map(int, input().split())
 arr = []
 for _ in range(m):
@@ -21,7 +22,7 @@ def union(a,b):
     y = find(b)
     if x == y:
         return False
-    uf[a] = b
+    uf[b] = a
     return True
 
 arr.sort(key=lambda x : x[2])
