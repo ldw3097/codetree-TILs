@@ -10,18 +10,15 @@ for i in range(n):
     for j in range(m):
         if arr[i][j] < 0:
             continue
-        parret = 0
         width = m-j
         for k in range(i, n):
             parwidth = 0
             for l in range(j, j+width):
-                if arr[k][l] > 0:
-                    parwidth += 1
-                else:
-                    width = parwidth
+                if arr[k][l] < 0:
+                    width = l-j
                     break
-                parret = max(parret, (width)*(k-i+1))
             if width == 0:
                 break
-        ret = max(ret, parret)
+            ret = max(ret, (width)*(k-i+1))
+
 print(ret)
