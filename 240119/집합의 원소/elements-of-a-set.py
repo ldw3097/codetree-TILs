@@ -13,11 +13,13 @@ def find(a):
     return root
 
 def union(a, b):
-    if find(a) == find(b):
+    x = find(a)
+    y = find(b)
+    if x == y:
         return
-    arr[b] = a
+    arr[x] = y
 
-for i in range(m):
+for _ in range(m):
     a,b,c = map(int, input().split())
     if a == 1:
         print(int(find(b) == find(c)))
