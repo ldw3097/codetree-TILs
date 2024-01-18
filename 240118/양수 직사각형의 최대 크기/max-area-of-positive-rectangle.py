@@ -12,9 +12,8 @@ for i in range(n):
             continue
         width = m-j
         for k in range(i, n):
-            parwidth = 0
             for l in range(j, j+width):
-                if arr[k][l] < 0:
+                if arr[k][l] <= 0:
                     width = l-j
                     break
             if width == 0:
