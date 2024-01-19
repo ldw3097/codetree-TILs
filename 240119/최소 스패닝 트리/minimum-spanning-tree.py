@@ -19,9 +19,9 @@ def find(a):
     return root 
 
 def union(a,b):
-    X = find(a)
-    Y = find(b)
-    uf[X] = Y
+    A = find(a)
+    B = find(b)
+    uf[A] = B
 
 edges.sort(key=lambda x : x[2])
 for i in range(1, n + 1):
