@@ -15,14 +15,15 @@ def calc(dic):
     return ret
 
 def sol(whatalpha, dic):
-    dic1 = dic.copy()
-    dic1[alpha[whatalpha]] = 1
-    dic2 = dic.copy()
-    dic2[alpha[whatalpha]] = 4
+    dics = []
+    for i in range(1,5):
+        diccopy = dic.copy()
+        diccopy[alpha[whatalpha]] = i
+        dics.append(diccopy) 
+
     if whatalpha == 5:
-        return max(calc(dic1), calc(dic2))
-    ret1 = sol(whatalpha+1, dic1)
-    ret2 = sol(whatalpha+1, dic2)
-    return max(ret1, ret2)
+        return max([ calc(dics[i]) for i in range(4) ])
+    
+    return max([sol(whatalpha+1, dics[i]) for i in range(4)])
 
 print(sol(0,{}))
