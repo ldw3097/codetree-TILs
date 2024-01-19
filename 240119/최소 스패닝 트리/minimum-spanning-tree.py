@@ -18,18 +18,17 @@ def find(a):
     uf[a] = root
     return root 
 
-def union(a,b):
-    x = find(a)
-    y = find(b)
-    uf[b] = a
-    
+def union(x,y):
+    X, Y = find(x), find(y)
+    uf[X] = Y
+
+edges.sort(key=lambda x : x[2])
 for i in range(1, n + 1):
     uf[i] = i
-    
-edges.sort(key=lambda x : x[2])
-ret = 0
-for a,b,c in edges:
-    if find(a) != find(b):
-        ret += c
-        union(a,b)
-print(ret)
+
+ans = 0
+for x,y,cost in edges:
+    if find(x) != find(y):
+        ans += cost
+        union(x,y)
+print(ans)
