@@ -12,7 +12,7 @@ while dq:
     a = dq.popleft()
     val = arr[a]
     for i in range(1, val+1):
-        if a+i < n and dp[a+i] > val + 1:
+        if a+i < n and dp[a+i] > dp[a] + 1:
             dp[a+i] = dp[a] + 1
             dq.append(a+i)
             
