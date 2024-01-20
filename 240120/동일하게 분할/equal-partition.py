@@ -7,6 +7,7 @@ def solve(arr):
     s = sum(arr)
     if s%2 == 1:
         print("No")
+        return
     s //= 2
     dp = [0] *(s+1)
     dp[0] = 1
