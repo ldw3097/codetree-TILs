@@ -8,12 +8,12 @@ else:
     dp[0][0] = 2
 for i in range(1,len(a)):
     if a[i] == b[0]:
-        dp[0][i] = i
+        dp[0][i] = i+1
     else:
         dp[0][i] = dp[0][i-1]+1
 for j in range(1, len(b)):
     if a[0] == b[j]:
-        dp[j][0] = j
+        dp[j][0] = j+1
     else:
         dp[j][0] = dp[j-1][0]+1
 
