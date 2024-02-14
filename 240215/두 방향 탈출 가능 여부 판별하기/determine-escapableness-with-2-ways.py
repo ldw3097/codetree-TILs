@@ -1,5 +1,3 @@
-import sys
-sys.setrecursionlimit(10**7)
 n, m = map(int, input().split())
 arr = []
 for _ in range(n):
@@ -10,7 +8,7 @@ def traverse(y, x):
         return 1
     for dy, dx in zip((1, 0), (0,1)):
         ny,nx = y+dy, x+dx
-        if 0<=ny <n and 0<=nx<=m and arr[ny][nx] == 1:
+        if 0<=ny <n and 0<=nx<m and arr[ny][nx] == 1:
             if(traverse(ny,nx)):
                 return 1
     return 0
