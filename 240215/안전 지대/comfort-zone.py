@@ -7,10 +7,10 @@ retk = -1
 retcomf = -1
 
 def traverse(y,x,visited,k):
-    visited.add((y,x))
     for dy,dx in zip((1,-1,0,0),(0,0,1,-1)):
         ny,nx = y+dy,x+dx
         if 0<=ny<n and 0<=nx<m and arr[ny][nx]>k and (ny,nx) not in visited:
+            visited.add((ny,nx))
             traverse(ny,nx,visited,k)
     
 def getcomf(k):
@@ -20,6 +20,7 @@ def getcomf(k):
         for x in range(m):
             if arr[y][x] > k and (y,x) not in visited:
                 ret += 1
+                visited.add((y,x))
                 traverse(y,x,visited, k)
     return ret
 
